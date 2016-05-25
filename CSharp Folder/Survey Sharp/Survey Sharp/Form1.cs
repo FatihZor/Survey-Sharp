@@ -19,9 +19,16 @@ namespace Survey_Sharp
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            string username = "hede";
-            string password = "hede";
-            ShowInputDialog(ref username, ref password);
+            string username = "Username", password = "Password";
+            
+          
+            if (ShowInputDialog(ref username, ref password) == DialogResult.OK)
+            {
+                MessageBox.Show("Ok");
+            }
+            else
+                MessageBox.Show("Cancel");
+
         }
 
         private static DialogResult ShowInputDialog(ref string username, ref string password)
@@ -67,6 +74,10 @@ namespace Survey_Sharp
             DialogResult result = inputBox.ShowDialog();
             username = usernameBox.Text;
             password = passwordBox.Text;
+            if (username == "fatih" && password == "zor")
+            {
+
+            }
             return result;
         }
     }
