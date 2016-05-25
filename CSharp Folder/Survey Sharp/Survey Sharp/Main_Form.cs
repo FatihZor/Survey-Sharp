@@ -16,6 +16,9 @@ namespace Survey_Sharp
     {
         private static string ipm = "fatih";
         private static string username2, password2;
+        private static string username = "", password = "";
+        User user1;
+
         public MainForm()
         {
             InitializeComponent();
@@ -24,15 +27,10 @@ namespace Survey_Sharp
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            string username = "Username", password = "Password";
 
 
-            if (ShowInputDialog(ref username, ref password) == DialogResult.OK)
-            {
-                MessageBox.Show("Ok");
-            }
-            else
-                MessageBox.Show("Cancel");
+            login(username, password);
+
 
             toolStripStatusLabel1.Text = "Login";
             toolStripStatusLabel2.Text = "UserType";
@@ -81,16 +79,8 @@ namespace Survey_Sharp
             inputBox.CancelButton = cancelButton;
 
             DialogResult result = inputBox.ShowDialog();
-            username = usernameBox.Text;
             username2 = usernameBox.Text;
-            password = passwordBox.Text;
             password2 = passwordBox.Text;
-            if (username == "fatih" && password == "zor")
-            {
-                result = DialogResult.OK;
-            }
-            else
-                result = DialogResult.Cancel;
             return result;
         }
 
@@ -143,21 +133,51 @@ namespace Survey_Sharp
 
         public static void GetExternalIP()
         {
-            string externalIP;
-            externalIP = (new System.Net.WebClient()).DownloadString("http://checkip.dyndns.org/");
-            externalIP = (new System.Text.RegularExpressions.Regex(@"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}")).Matches(externalIP)[0].ToString();
-           ipm = externalIP;
-            
+            try
+            {
+                string externalIP;
+                externalIP = (new System.Net.WebClient()).DownloadString("http://checkip.dyndns.org/");
+                externalIP = (new System.Text.RegularExpressions.Regex(@"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}")).Matches(externalIP)[0].ToString();
+                ipm = externalIP;
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show(e.Message);
+                ipm = e.Message;
+            }
+           
+
         }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-           GetExternalIP();
+            GetExternalIP();
         }
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             toolStripStatusLabel3.Text = ipm;
+        }
+
+        private void login(string username, string password)
+        {
+            username = ""; password = "";
+            DialogResult dialog_result = ShowInputDialog(ref username, ref password);
+            user1 = new User(username2, password2);
+
+            if (user1.validate_login() == true)
+            {
+                MessageBox.Show("Login Validated!");
+            }
+            else if (dialog_result == DialogResult.Cancel)
+            {
+                Application.Exit();
+            }
+            else
+            {
+                login(username, password);
+            }
         }
     }
 }

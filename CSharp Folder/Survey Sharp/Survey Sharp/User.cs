@@ -18,7 +18,7 @@ namespace Survey_Sharp
 
         DataConnection dc = new DataConnection();
 
-        public bool login()
+        public bool validate_login()
         {
             if (dc.validate_login(user, pass) == true)
             {
