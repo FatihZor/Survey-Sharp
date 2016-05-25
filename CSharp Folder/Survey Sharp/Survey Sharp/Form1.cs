@@ -29,6 +29,9 @@ namespace Survey_Sharp
             else
                 MessageBox.Show("Cancel");
 
+            toolStripStatusLabel1.Text = "Login";
+            toolStripStatusLabel2.Text = "UserType";
+
         }
 
         private static DialogResult ShowInputDialog(ref string username, ref string password)
