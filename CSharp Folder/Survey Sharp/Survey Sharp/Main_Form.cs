@@ -4,7 +4,9 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -12,9 +14,11 @@ namespace Survey_Sharp
 {
     public partial class MainForm : Form
     {
+        private static string ipm = "fatih";
         public MainForm()
         {
             InitializeComponent();
+            CheckForIllegalCrossThreadCalls = false;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -31,6 +35,8 @@ namespace Survey_Sharp
 
             toolStripStatusLabel1.Text = "Login";
             toolStripStatusLabel2.Text = "UserType";
+            backgroundWorker1.RunWorkerAsync();
+
 
         }
 
@@ -104,7 +110,7 @@ namespace Survey_Sharp
 
         private void ExitLabel_Click(object sender, EventArgs e)
         {
-            Exit();
+            MessageBox.Show(ipm);
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -130,6 +136,26 @@ namespace Survey_Sharp
         private void surveysButton_Click(object sender, EventArgs e)
         {
             MySurveys();
+        }
+
+
+        public static void GetExternalIP()
+        {
+            string externalIP;
+            externalIP = (new System.Net.WebClient()).DownloadString("http://checkip.dyndns.org/");
+            externalIP = (new System.Text.RegularExpressions.Regex(@"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}")).Matches(externalIP)[0].ToString();
+           ipm = externalIP;
+            
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+           GetExternalIP();
+        }
+
+        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            toolStripStatusLabel3.Text = ipm;
         }
     }
 }
