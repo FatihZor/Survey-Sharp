@@ -15,6 +15,7 @@ namespace Survey_Sharp
     public partial class MainForm : Form
     {
         private static string ipm = "fatih";
+        private static string username2, password2;
         public MainForm()
         {
             InitializeComponent();
@@ -36,7 +37,6 @@ namespace Survey_Sharp
             toolStripStatusLabel1.Text = "Login";
             toolStripStatusLabel2.Text = "UserType";
             backgroundWorker1.RunWorkerAsync();
-
 
         }
 
@@ -82,7 +82,9 @@ namespace Survey_Sharp
 
             DialogResult result = inputBox.ShowDialog();
             username = usernameBox.Text;
+            username2 = usernameBox.Text;
             password = passwordBox.Text;
+            password2 = passwordBox.Text;
             if (username == "fatih" && password == "zor")
             {
                 result = DialogResult.OK;
@@ -110,7 +112,7 @@ namespace Survey_Sharp
 
         private void ExitLabel_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(ipm);
+            Exit();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
