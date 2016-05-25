@@ -76,8 +76,10 @@ namespace Survey_Sharp
             password = passwordBox.Text;
             if (username == "fatih" && password == "zor")
             {
-
+                result = DialogResult.OK;
             }
+            else
+                result = DialogResult.Cancel;
             return result;
         }
     }
