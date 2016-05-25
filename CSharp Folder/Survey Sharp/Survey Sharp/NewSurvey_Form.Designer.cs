@@ -36,7 +36,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(745, 461);
             this.Name = "NewSurvey_Form";
-            this.Text = "NewSurvey_Form";
+            this.Text = "New Survey | Survey Sharp";
+            this.Load += new System.EventHandler(this.NewSurvey_Form_Load);
             this.ResumeLayout(false);
 
         }

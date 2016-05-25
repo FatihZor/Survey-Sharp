@@ -20,8 +20,8 @@ namespace Survey_Sharp
         private void Form1_Load(object sender, EventArgs e)
         {
             string username = "Username", password = "Password";
-            
-          
+
+
             if (ShowInputDialog(ref username, ref password) == DialogResult.OK)
             {
                 MessageBox.Show("Ok");
@@ -31,7 +31,7 @@ namespace Survey_Sharp
 
             toolStripStatusLabel1.Text = "Login";
             toolStripStatusLabel2.Text = "UserType";
-                        
+
         }
 
         private static DialogResult ShowInputDialog(ref string username, ref string password)
@@ -88,7 +88,8 @@ namespace Survey_Sharp
 
         private void NewSurvey()
         {
-
+            NewSurvey_Form ns = new NewSurvey_Form();
+            ns.Show();
         }
 
         private void MySurveys()
@@ -119,6 +120,16 @@ namespace Survey_Sharp
         private void newSurveyToolStripMenuItem_Click(object sender, EventArgs e)
         {
             NewSurvey();
+        }
+
+        private void new_surveyButton_Click(object sender, EventArgs e)
+        {
+            NewSurvey();
+        }
+
+        private void surveysButton_Click(object sender, EventArgs e)
+        {
+            MySurveys();
         }
     }
 }

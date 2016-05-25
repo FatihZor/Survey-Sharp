@@ -16,5 +16,10 @@ namespace Survey_Sharp
         {
             InitializeComponent();
         }
+
+        private void NewSurvey_Form_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

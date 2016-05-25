@@ -34,11 +34,11 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.ExitLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.newSurveyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mySurveysToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ExitLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -52,6 +52,7 @@
             this.new_surveyButton.TabIndex = 0;
             this.new_surveyButton.Text = "New Survey";
             this.new_surveyButton.UseVisualStyleBackColor = false;
+            this.new_surveyButton.Click += new System.EventHandler(this.new_surveyButton_Click);
             // 
             // surveysButton
             // 
@@ -62,6 +63,7 @@
             this.surveysButton.TabIndex = 1;
             this.surveysButton.Text = "My Surveys";
             this.surveysButton.UseVisualStyleBackColor = false;
+            this.surveysButton.Click += new System.EventHandler(this.surveysButton_Click);
             // 
             // statusStrip1
             // 
@@ -80,46 +82,16 @@
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(396, 17);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(411, 17);
             this.toolStripStatusLabel1.Spring = true;
             this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
             // toolStripStatusLabel2
             // 
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(396, 17);
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(411, 17);
             this.toolStripStatusLabel2.Spring = true;
             this.toolStripStatusLabel2.Text = "toolStripStatusLabel2";
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newSurveyToolStripMenuItem,
-            this.mySurveysToolStripMenuItem,
-            this.exitToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 92);
-            // 
-            // newSurveyToolStripMenuItem
-            // 
-            this.newSurveyToolStripMenuItem.Name = "newSurveyToolStripMenuItem";
-            this.newSurveyToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.newSurveyToolStripMenuItem.Text = "New Survey";
-            this.newSurveyToolStripMenuItem.Click += new System.EventHandler(this.newSurveyToolStripMenuItem_Click);
-            // 
-            // mySurveysToolStripMenuItem
-            // 
-            this.mySurveysToolStripMenuItem.Name = "mySurveysToolStripMenuItem";
-            this.mySurveysToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.mySurveysToolStripMenuItem.Text = "My Surveys";
-            this.mySurveysToolStripMenuItem.Click += new System.EventHandler(this.mySurveysToolStripMenuItem_Click);
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // ExitLabel
             // 
@@ -128,6 +100,36 @@
             this.ExitLabel.Size = new System.Drawing.Size(25, 17);
             this.ExitLabel.Text = "Exit";
             this.ExitLabel.Click += new System.EventHandler(this.ExitLabel_Click);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newSurveyToolStripMenuItem,
+            this.mySurveysToolStripMenuItem,
+            this.exitToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(137, 70);
+            // 
+            // newSurveyToolStripMenuItem
+            // 
+            this.newSurveyToolStripMenuItem.Name = "newSurveyToolStripMenuItem";
+            this.newSurveyToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.newSurveyToolStripMenuItem.Text = "New Survey";
+            this.newSurveyToolStripMenuItem.Click += new System.EventHandler(this.newSurveyToolStripMenuItem_Click);
+            // 
+            // mySurveysToolStripMenuItem
+            // 
+            this.mySurveysToolStripMenuItem.Name = "mySurveysToolStripMenuItem";
+            this.mySurveysToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.mySurveysToolStripMenuItem.Text = "My Surveys";
+            this.mySurveysToolStripMenuItem.Click += new System.EventHandler(this.mySurveysToolStripMenuItem_Click);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // MainForm
             // 
