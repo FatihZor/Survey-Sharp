@@ -31,7 +31,7 @@ namespace Survey_Sharp
 
             toolStripStatusLabel1.Text = "Login";
             toolStripStatusLabel2.Text = "UserType";
-
+                        
         }
 
         private static DialogResult ShowInputDialog(ref string username, ref string password)
@@ -84,6 +84,41 @@ namespace Survey_Sharp
             else
                 result = DialogResult.Cancel;
             return result;
+        }
+
+        private void NewSurvey()
+        {
+
+        }
+
+        private void MySurveys()
+        {
+
+        }
+
+        private void Exit()
+        {
+            Application.Exit();
+        }
+
+        private void ExitLabel_Click(object sender, EventArgs e)
+        {
+            Exit();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Exit();
+        }
+
+        private void mySurveysToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MySurveys();
+        }
+
+        private void newSurveyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NewSurvey();
         }
     }
 }
