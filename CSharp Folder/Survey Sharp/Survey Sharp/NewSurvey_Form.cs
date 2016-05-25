@@ -21,5 +21,20 @@ namespace Survey_Sharp
         {
 
         }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            panel2.Show();
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void radioButton3_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
